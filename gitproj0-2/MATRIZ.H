@@ -12,7 +12,10 @@
 *  Projeto: Disciplinas INF 1628 / 1301
 *  Gestor:  DI/PUC-Rio
 *  Autores: avs - Arndt von Staa
-*			fvc - Felipe Vieira Cortes
+*			fvc - Felipe Vieira Côrtes
+*			tbm - Tássio Borges de Miranda
+*			db  - Daniela Brazão
+
 *
 *  $HA Histórico de evolução:
 *     Versão  Autor    Data     Observações
@@ -72,6 +75,7 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
+*	  MAT_CondRetErro - Quando os parametros linha e coluna estão errados
 *     MAT_CondRetFaltouMemoria
 *
 ***********************************************************************/
@@ -85,9 +89,11 @@ typedef struct tgMatriz * tppMatriz;
 *  $ED Descrição da função
 *     Cria uma nova lista que será armazenada na matriz
 *
+*  $EP Parâmetros
+*     $P pLista - Ponteiro de referencia para a lista a ser criada
+*
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*     MAT_CondRetFaltouMemoria
 *
 ***********************************************************************/
 
@@ -106,6 +112,7 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK - Destrui sem problemas
+*	  MAT_CondRetErro - Algum erro na destruição das listas da matriz
 *
 ***********************************************************************/
 
@@ -121,10 +128,13 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $EP Parâmetros
 *     $P Valor - Char a ser inserido no novo nó.
+*		 Lista - A lista a se inserir o char
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*	  MAT_CondRetErro
+*	  MAT_CondRetErro - Erro na inserção do char na lista
+*	  MAT_CondRetFaltouMemoria
+*    
 *
 ***********************************************************************/
 
@@ -140,10 +150,13 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $EP Parâmetros
 *     $P Valor - Char a ser inserido no novo nó.
+*		 Lista - A lista a se inserir o char
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*	  MAT_CondRetErro
+*	  MAT_CondRetErro - Erro na inserção do char na lista
+*	  MAT_CondRetFaltouMemoria
+*    
 *
 ***********************************************************************/
 
@@ -162,7 +175,6 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*	  MAT_CondRetErro
 *
 ***********************************************************************/
 
@@ -189,7 +201,6 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*     MAT_CondRetMatrizNaoExiste
 *	  MAT_CondRetErro
 *
 ***********************************************************************/
@@ -209,7 +220,6 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*	  MAT_CondRetErro
 *
 ***********************************************************************/
 
@@ -227,7 +237,6 @@ typedef struct tgMatriz * tppMatriz;
 *
 *  $FV Valor retornado
 *     MAT_CondRetOK
-*	  MAT_CondRetErro
 *
 ***********************************************************************/
 

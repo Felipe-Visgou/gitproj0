@@ -1,0 +1,106 @@
+// Script:    TesteLista.script
+// Autor:     Arndt von Staa
+// Data:      02/abr/2008
+// Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada
+//
+
+== Inicializar valores
+=declararparm   lista0  int 0
+=declararparm   lista1  int 1
+=declararparm   lista2  int 2
+
+=declararparm   chara    char  'a' 
+=declararparm   charb    char  'b
+=declararparm   charc    char  'c'
+=declararparm   chard    char  'f'
+
+=declararparm   OK             int  0
+=declararparm   ListaVazia     int  1
+=declararparm   FimLista       int  2
+=declararparm   NaoAchou       int  3
+=declararparm   FaltouMemoria  int  4
+
+=declararparm   pNULL          int  0
+=declararparm   pNaoNULL       int  1
+
+== Criar a lista 0
+=criarlista      lista0 
+
+== Inserir elemento em lista vazia
+=inselemantes    lista0   chara  OK
+=obtervalorelem  lista0   chara   OK
+
+== Inserir elemento após primeiro
+=inselemapos     lista0   charb   OK
+=obtervalorelem  lista0   charb   OK
+
+== Inserir elemento antes do último
+=inselemantes    lista0   charc   OK
+=obtervalorelem  lista0   charc   OK
+
+== Excluir elemento do meio
+=obtervalorelem  lista0   charc    OK
+=excluirelem     lista0             OK
+
+== Excluir elemento do início
+=obtervalorelem  lista0   chara  OK
+=excluirelem     lista0             OK
+
+== Excluir elemento final, único 
+=obtervalorelem  lista0   charb   OK
+=excluirelem     lista0             OK
+
+== Destruir a lista
+=destruirlista   lista0
+
+== Criar uma lista com dois elementos
+=criarlista      lista1 
+=inselemapos     lista1   chara   OK
+=inselemapos     lista1   charb   OK
+
+== Esvaziar a lista e ver se ficou vazia
+=esvaziarlista   lista1
+=obtervalorelem  lista1   '?'    pNULL
+
+== Destruir a lista
+=destruirlista   lista1
+
+== Criar uma lista com quatro elementos
+=criarlista      lista2 
+=inselemapos     lista2  chara   OK
+=inselemapos     lista2   charb   OK
+=inselemapos     lista2   charc  OK
+=inselemapos     lista2   chard	OK
+
+== Verificar a lista de trás para diante
+=obtervalorelem  lista2   chard   OK
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   charc  OK
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   charb  OK
+=avancarelem     lista2   -1     OK
+=obtervalorelem  lista2   chara  OK
+=avancarelem     lista2   -1     FimLista
+
+== Verificar a lista de frente para trás
+=obtervalorelem  lista2   chara   OK
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   charb   OK
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   charc   OK
+=avancarelem     lista2   1      OK
+=obtervalorelem  lista2   chard   OK
+=avancarelem     lista2   1      FimLista
+
+== Verificar a lista andando demais de trás para diante
+=avancarelem     lista2   -10     FimLista
+=obtervalorelem  lista2   chara   OK
+
+== Verificar a lista andando demais de frente para trás
+=avancarelem     lista2   10     FimLista
+=obtervalorelem  lista2   chard   OK
+
+== Destruir a lista
+=destruirlista   lista2
+
+// fim

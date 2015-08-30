@@ -95,11 +95,11 @@ LIS_tppLista	lista;
 
 /***********************************************************************
 *
-*  $FC Função: TARV Efetuar operações de teste específicas para árvore
+*  $FC Função: TMAT Efetuar operações de teste específicas para Matrizes
 *
 *  $ED Descrição da função
 *     Efetua os diversos comandos de teste específicos para o módulo
-*     árvore sendo testado.
+*     Matriz sendo testado.
 *
 *  $EP Parâmetros
 *     $P ComandoTeste - String contendo o comando
@@ -160,13 +160,13 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-          CondRetObtido =  MAT_CriarLista(&lista);
+          CondRetObtido = LIS_CriarLista( &lista, DestruirValor );
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao criar a Lista." );
          } /* fim ativa: Testar Criar Lista */
 
-      /* Testar MAT Inserir lista na Matriz */
+      /* Testar MAT Destruir Matriz */
 
          else if ( strcmp( ComandoTeste , DESTRUIR_CMD ) == 0 )
          {
@@ -183,7 +183,7 @@ LIS_tppLista	lista;
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir a lista na matriz" );
 
-         } /* fim ativa: Testar MAT Inserir lista na matriz*/
+         } /* fim ativa: Testar MAT Destruir Matriz */
 
       /* Testar  MAT Avancar célula da matriz  */
 
@@ -229,7 +229,7 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_InserirCharAntes(lista, ValorDado) ;
+            CondRetObtido = LIS_InserirElementoAntes(lista, ValorDado) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir char antes do corrente" );
@@ -246,7 +246,7 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_InserirCharDepois(lista, ValorDado) ;
+            CondRetObtido = LIS_InserirElementoApos(lista, ValorDado) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                     "Retorno errado ao inserir char depois do corrente" );
@@ -285,7 +285,7 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_ObterValor( lista, &ValorObtido ) ;
+            CondRetObtido = LIS_ObterValor(lista, &ValorObtido) ;
 
 
             Ret = TST_CompararChar( ValorDado , ValorObtido ,
@@ -313,10 +313,9 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_IrInicio( lista ) ;
+            IrInicioLista( lista ) ;
 
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao ir para o inicio da lista" );
+            return TST_CondRetOK;
 
          } /* fim ativa: Testar MAT Ir para nó origem */
 
@@ -332,10 +331,9 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_IrFinal( lista ) ;
+            IrFinalLista( lista ) ;
 
-            return TST_CompararInt( CondRetEsperada , CondRetObtido ,
-                                    "Retorno errado ao ir para o fim da lista." );
+            return TST_CondRetOK;
 
          } /* fim ativa: Testar MAT Ir para nó final */
 
@@ -351,7 +349,7 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_AvancarElementoCorrente( lista, numElem ) ;
+            CondRetObtido = LIS_AvancarElementoCorrente( lista, numElem ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                    "Retorno errado ao avancar o elemento corrente da lista." );
@@ -370,7 +368,7 @@ LIS_tppLista	lista;
                return TST_CondRetParm ;
             } /* if */
 
-            CondRetObtido = MAT_ExcluirElemento( lista ) ;
+            CondRetObtido = LIS_ExcluirElemento( lista ) ;
 
             return TST_CompararInt( CondRetEsperada , CondRetObtido ,
                                    "Retorno errado ao excluir o elemento da lista." );
