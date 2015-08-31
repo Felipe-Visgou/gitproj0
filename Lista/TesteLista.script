@@ -1,18 +1,23 @@
 // Script:    TesteLista.script
-// Autor:     Arndt von Staa
-// Data:      02/abr/2008
-// Propósito: Testar superficialmente o módulo lista genérica duplamente encadeada
+// Autor:     Arndt von Staa, Felipe Vieira
+// Data:      30/ago/2015
 //
 
 == Inicializar valores
 =declararparm   lista0  int 0
 =declararparm   lista1  int 1
 =declararparm   lista2  int 2
+=declararparm   lista3  int 3
+=declararparm   lista4  int 4
+=declararparm   lista5  int 5
 
 =declararparm   str0    string  "abcdefg"
 =declararparm   str1    string  "qwerty"
 =declararparm   str2    string  "xxx"
 =declararparm   str3    string  "xpto"
+=declararparm	str4	string	"1234"
+=declararparm	str5	string	"oi!"
+
 
 =declararparm   OK             int  0
 =declararparm   ListaVazia     int  1
@@ -108,5 +113,22 @@
 
 == Destruir a lista
 =destruirlista   lista2
+
+== Criar lista com 3 elementos
+=criarlista	lista3
+=inselemapos     lista3   str0   OK
+=inselemapos     lista3   str1   OK
+=inselemapos     lista3   str2   OK
+
+== Ir Inicio da lista e obter string 0
+=irinicio	lista3
+=obtervalorelem	lista3	str0	pNaoNULL
+
+== Ir Final da lista e obter a strig 2
+=irfinal	lista3
+=obtervalorelem	lista3	str2	pNaoNULL
+
+== Destruir a lista
+=destruirlista lista3
 
 // fim
